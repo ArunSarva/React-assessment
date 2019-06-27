@@ -1,0 +1,64 @@
+.App-header {
+  background-color: #E0E4E2;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(6px + 1vmin);
+  font-weight: bold;
+  color: #37383b;
+}
+.label1{
+  font-weight: normal;
+  font-size: 25px;
+}
+.inputfiled
+{
+margin-bottom: 10px;
+border-radius: 3px;
+border-color: #747579;
+border-style: none;
+/* border:none; */
+width: 280px;
+height: 26px;
+}
+
+.add_field
+{
+  width: 310px;
+}
+.horizontal_line
+{
+  width: 300px;
+}
+.Add_user
+{
+  background-color: #2027e6;
+  border: none;
+  border-radius: 3px;
+  color: white;
+  font-weight:bold;
+  padding: 6px 20px;
+}
+.Register
+{
+  border:none;
+  background-color: #1951d4;
+  border-radius: 5px;
+  text-align: center;
+  color: white;
+  font-size: 15px;
+  padding-top: 8px;
+}
+.Cancel
+{
+  border: none;
+  background-color: #E0E4E2;
+  color: #1951d4;
+  font-size: 15px;
+  padding-top: 8px;
+}
+.App-link {
+  color: #61dafb;
+}
