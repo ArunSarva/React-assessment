@@ -22,11 +22,11 @@ class Register extends Component {
                 </form>
                 <button  className="Register" onClick={this.props.SIGN_UP}> Register </button>
                 <button  className="Cancel" onClick={this.handleSubmit}> Cancel </button>
-                <button onClick={()=>this.props.UpDateC(this.props.itema)}></button>
-                <hi>{this.props.SecondName}</hi>
+                {/* <button onClick={()=>this.props.UpDateC(this.props.itema)}></button> */}
+                {/* <hi>{this.props.SecondName}</hi>
                 <hi>{this.props.FirstName}</hi>
                 <hi>{this.props.Password}</hi>
-                <hi>{this.props.UserName}</hi>
+                <hi>{this.props.UserName}</hi> */}
             </div>
         );
     }
@@ -37,7 +37,7 @@ const mapStateToprops=(state)=>{
     const {UserName}=state.Registerreducer;
     const {Password}=state.Registerreducer;
     
-    return {};
+    return {FirstName,SecondName,UserName,Password};
 };
 export default connect(
     mapStateToprops,
