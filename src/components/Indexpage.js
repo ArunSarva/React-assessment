@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
 import './indexpage.css';
-
+import browserHistory from "../util/browserHistory"
+import UniqueID from 'react-html-id';
 class Indexpage extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            id:'',
             Name: '',
             UserName:'',
             arrary:[]
+            // users:[
+            //     {id:"", Name:'',UserName :''}]
         }
        
     }
@@ -16,34 +20,36 @@ class Indexpage extends Component {
         this.setState({[event.target.name]: event.target.value});
         // console.log(this.reqobj);
         }
-        handleSubmit=(event)=> {          
+        
+        handleSubmit=(event)=> {      
+            UniqueID.enableUniqueIds(this);    
              let reqobj={
+              id:this.nextUniqueId(),
               Name:this.state.Name,
               UserName:this.state.UserName,
             }
             let x=this.state.arrary.push(reqobj);
             this.setState({x});
             console.log(reqobj)
-            // window.location("/Task2");
-            // browserHistory.push("/Task2");
-            // if(this.state.age<=0)
-            // {
-            //     console.log("this is not a valid age")
-            // }
-            // var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
-            // if (reg.test(this.state.address) == false) 
-            // {
-            //     console.log('Invalid Email Address');                
-            // }
-            // if (this.state.city.length!=10)
-            // {
-            //     console.log("not a valid phone no parinitha")
-            // }
+
         }
+        
+        logOut()
+        {
+            browserHistory.push("/login");
+        }
+        deleteUser = (index, e) => {
+            // debugger
+            // console.log(this.nextUniqueId())
+            const users = Object.assign([], this.state.arrary);
+            users.splice(index, 1);
+            this.setState({users:users});
+            }
 
     render() {
         return (
             <div >
+                <button  className="Logout" onClick={this.logOut}> Logout </button>
                 <h1 className="page_title">React Application</h1>
                 <div className="user_add_div">
                     <h2>Add User</h2>
@@ -69,13 +75,13 @@ class Indexpage extends Component {
                         
                     </tr>
                     
-                    {this.state.arrary.map((display) =>(
+                    {this.state.arrary.map((display,index) =>(
                     <tr>
                         <td>{display.Name}</td>
                         <td></td>
                         <td>{display.UserName}</td>
                         <td></td>
-                        <td><button  onClick={this.h} >Submit</button><button onClick={this.ha} >Submit</button></td>
+                        <td><button  onClick={this.h} >Edit</button><button onClick={this.deleteUser(this.state.Arrary,index)} >Delete</button></td>
                         </tr>
                         
                     ))}

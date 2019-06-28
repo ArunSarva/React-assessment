@@ -24,23 +24,6 @@ width: 280px;
 height: 26px;
 }
 
-.add_field
-{
-  width: 310px;
-}
-.horizontal_line
-{
-  width: 300px;
-}
-.Add_user
-{
-  background-color: #2027e6;
-  border: none;
-  border-radius: 3px;
-  color: white;
-  font-weight:bold;
-  padding: 6px 20px;
-}
 .Register
 {
   border:none;
