@@ -40,7 +40,7 @@ class Indexpage extends Component {
         }
         deleteUser = (index, e) => {
             // debugger
-            // console.log(this.nextUniqueId())
+            console.log(this.state.arrary)
             const users = Object.assign([], this.state.arrary);
             users.splice(index, 1);
             this.setState({users:users});
@@ -76,12 +76,12 @@ class Indexpage extends Component {
                     </tr>
                     
                     {this.state.arrary.map((display,index) =>(
-                    <tr>
+                    <tr key={index} >
                         <td>{display.Name}</td>
                         <td></td>
                         <td>{display.UserName}</td>
                         <td></td>
-                        <td><button  onClick={this.h} >Edit</button><button onClick={this.deleteUser(this.state.Arrary,index)} >Delete</button></td>
+                        <td><button  onClick={this.h} >Edit</button><button onClick={this.deleteUser(index)} >Delete</button></td>
                         </tr>
                         
                     ))}

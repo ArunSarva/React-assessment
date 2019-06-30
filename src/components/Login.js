@@ -53,10 +53,10 @@ class Login extends Component {
                     <label>
                     First Name<br></br>
                     <input type="text" name="Fname" className="inputfiled" onChange={this.handleChange} /><br></br>
-                    <label>{this.state.frequired}</label><br></br>
+                    <label className="error_message">{this.state.frequired}</label><br></br>
                     Password<br></br>
                     <input type="email" name="Password" className="inputfiled" onChange={this.handleChange} /><br></br> 
-                    <label>{this.state.pre}</label>
+                    <label className="error_message">{this.state.pre}</label>
                     </label><br></br>                                    
                 </form>
                 <button  className="Register" onClick={this.handleSubmit}> Login </button>
@@ -76,3 +76,5 @@ class Login extends Component {
 //     {LOGIN,CANCEL}
 //     )( Login);
 export default Login;
+
+

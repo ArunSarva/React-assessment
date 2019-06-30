@@ -13,6 +13,9 @@
   font-weight: normal;
   font-size: 25px;
 }
+.error_message{
+  color: red;
+}
 .inputfiled
 {
 margin-bottom: 10px;
