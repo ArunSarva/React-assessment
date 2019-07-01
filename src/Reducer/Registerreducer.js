@@ -6,6 +6,7 @@ const initialstate ={
     UserName:"",
     Password:"",
     FMessage:'',
+    Successmessage:'',
     Array:[]
 };
 export default(stateA=initialstate,action)=>
@@ -14,49 +15,20 @@ export default(stateA=initialstate,action)=>
     {
         case ActionTypes.SIGN_UP:
            {
-            this.state.arrary.map((display) =>(
-                {display}
-            ))
-            if(action.value.fname.length===0)
-            {
-                this.setState({})
-                return {...stateA,FMessage:"Fname required"}
+            // this.setstate({Successmessage:"Login successful"});
+                browserHistory.push("/login");
+                // window.open("/login")
+                return {...stateA,FirstName:action.value1,SecondName:action.value2,UserName:action.value3,Password:action.value4,Successmessage:"Login successful" }
 
             }
-            //    return {...stateA,FirstName:action.value.fname,SecondName:action.value.sname,UserName:action.value.uname,Password:action.value.password};
-            else
-            {return {...stateA,Password:"124"}}
-        }
         case ActionTypes.LOGIN:
-            {
-                if(this.state.Fname.length===0 && this.state.Password.length===0)
-            {
-                this.setState({frequired:"Fname required",pre:"password requierd"})
-
-            }
-            else if(this.state.Fname.length===0 )
-            {
-                this.setState({frequired:"Fname required"})
-                return true;
-            }  
-            
-            else if (this.state.Password.length===0)
-            {
-                this.setState({pre:"password requierd"})
-                return true;
-            }
-            else
-            {
-                browserHistory.push("/home");
-            }
-        
-                
-                return {...stateA,Password:"124"}
-         }
+            {           browserHistory.push("/home");     
+                return {...stateA,Successmessage:"Login successful"}
+             }
          case ActionTypes.CANCEL:
             {
                 return {...stateA,Password:"124"}
-         }
+            }
            default:
                return stateA;
     }

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect} from "react-redux";
 import {LOGIN,CANCEL} from  '../Action/Redisteraction';
 import browserHistory from "../util/browserHistory"
+import {SIGN_UP} from  '../Action/Redisteraction';
 
 class Login extends Component {
     constructor(props) {
@@ -10,8 +11,15 @@ class Login extends Component {
            Fname: '',
            Password:'',
            frequired:'',
+           message:'',
            pre:''
         }
+    }
+    componentWillMount()
+    {
+        debugger;
+        // this.props.SIGN_UP();
+        // this.setState({message:"password requierd"})
     }
     handleChange=(event)=> {
         
@@ -24,6 +32,7 @@ class Login extends Component {
         handleSubmit=(event)=> {
             // window.location("/Task2");
             // browserHistory.push("/Task2");
+            var password_regulr=/^[@#][A-Za-z0-9]{7,13}$/;
             if(this.state.Fname.length===0 && this.state.Password.length===0)
             {
                 this.setState({frequired:"Fname required",pre:"password requierd"})
@@ -32,22 +41,32 @@ class Login extends Component {
             else if(this.state.Fname.length===0 )
             {
                 this.setState({frequired:"Fname required"})
-                return true;
             }  
             
             else if (this.state.Password.length===0)
             {
                 this.setState({pre:"password requierd"})
-                return true;
+            }
+            else if(password_regulr.test(this.state.Password) == false)
+            {
+                this.setState({pre:"password not valid"})
             }
             else
             {
-                browserHistory.push("/home");
+                this.props.LOGIN();
             }
         }
     render() {
         return (
             <div>
+                <div>
+                    
+                {/* <h1>{console.log(this.props.FirstName)}</h1> */}
+                <h1>{console.log(this.props.Successmessage)}</h1>
+                    <label>
+                        {this.props.Successmessage}
+                    </label>
+                </div>
                 <h2>Login</h2>
                 <form >
                     <label>
@@ -61,20 +80,23 @@ class Login extends Component {
                 </form>
                 <button  className="Register" onClick={this.handleSubmit}> Login </button>
                 <button  className="Cancel" onClick={this.handleSubmit1}> Register </button>
+                
             </div>
         );
     }
 }
-// const mapStateToprops=(state)=>{
-//     const {FirstName}=state.Registerreducer;
-//     const {Password}=state.Registerreducer;
+const mapStateToprops=(state)=>{
+    debugger
+    const {FirstName}=state.Registerreducer;
+    const {Password}=state.Registerreducer;
+    const {Successmessage}=state.Registerreducer;
     
-//     return {FirstName,Password};
-// };
-// export default connect(
-//     mapStateToprops,
-//     {LOGIN,CANCEL}
-//     )( Login);
-export default Login;
+    return {FirstName,Password,Successmessage};
+};
+export default connect(
+    mapStateToprops,
+    {LOGIN}
+    )( Login);
+// export default Login;
 
 

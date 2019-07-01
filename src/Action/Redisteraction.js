@@ -1,11 +1,11 @@
 import * as ActionTypes from './Types';
 
-export function SIGN_UP(array1){
+export function SIGN_UP(fname,sname,uname,pass){
     return function(dispatch){
-        debugger;console.log(array1)
+        debugger;console.log(fname,sname,uname,pass)
         dispatch({
             
-            type:'SIGN_UP',value:array1
+            type:'SIGN_UP',value1:fname,value2:sname,value3:uname,value4:pass
         });
     }
 }

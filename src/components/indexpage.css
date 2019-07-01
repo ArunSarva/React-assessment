@@ -22,6 +22,7 @@ table {
   {
       position: absolute;
       top: 170px;
+      left: 550px;
   }
 .user_add_div
 {
@@ -33,6 +34,9 @@ table {
 .add_field
 {
   width: 370px;
+  border-radius:3px;
+  border:solid 1px;
+  border-color: dimgrey; 
 }
 .Add_user
 {
@@ -42,12 +46,13 @@ table {
   color: white;
   font-weight:bold;
   padding: 6px 20px;
+  margin-top: 10px;
 }
 .Logout
 {
   position: absolute;
   top: 80px;
-  left: 900px;
+  left: 700px;
   border: none;
   background-color: #E0E4E2;
   color: #37383b;
